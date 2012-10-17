@@ -23,6 +23,9 @@ headIndex = 0;
 template <typename T>
 void  CircularArray<T>::shiftRight(int k){
 
+     if(k<=0)
+        return;
+
       int valid = k%length;
       if(headIndex>=valid)
       {
@@ -41,6 +44,9 @@ template <typename T>
 void CircularArray<T>::shiftLeft(int k){
 
 
+   if(k<=0)
+       return;
+
    int valid = k%length; 
 
 
@@ -55,7 +61,10 @@ template <typename T>
 T & CircularArray<T>::operator [](int index)
 {
 
-
+     // I do not handle negative case here since
+     // 1) when you access a primitive array with negative index
+    // what will happen?
+    //2) what should I return if it is wrong? just let the runtime handle it
 
      return  arr[(index+headIndex)%length];
 
